@@ -1,0 +1,115 @@
+<resources>
+     <string name="app_url">https://dev.medijunction.co.in/</string>
+    <string name="Rs">\u20B9</string>
+    <string name="error_msg_require_field">This field is required</string>
+    <string name="share_userdetails">UserDetails</string>
+    <string name="somethingwrong">Something wrong please try after sometime...</string>
+    <string name="no_internet">InterNet Not Avaliable</string>
+    <string name="sidenav_signout">Sign Out</string>
+    <string name="nav_home">Dashboard</string>
+    <string name="nav_RegisterPatient">Add New Patient</string>
+    <string name="nav_RegisteredPatient">Patients</string>
+    <string name="nav_RegisterAddFamilyMember">Add New Member</string>
+    <string name="nav_RegisteredFamilymembers">Family Members</string>
+    <string name="nav_bookConsultation">Book Consultation</string>
+
+    <string name="nav_addcoupons">Add Coupons</string>
+    <string name="nav_casehistory">Case History</string>
+    <string name="nav_clinichistory">Clinic History</string>
+    <string name="nav_casedetail">Case Detail</string>
+    <string name="nav_consultation">Patient Consultation</string>
+    <string name="nav_mycoupons">My Coupons</string>
+    <string name="nav_ourdoctors">Our Doctors</string>
+    <string name="nav_coupons">Book Consultation</string>
+    <string name="nav_missedCallsLog">Missed Calls Log</string>
+
+    <string name="hint_firstname">First Name (पहला नाम)</string>
+    <string name="hint_middlename">Middle Name (मध्य नाम)</string>
+    <string name="hint_father">Father Name\n(पिता का नाम)</string>
+    <string name="hint_husbanad">Husband Name\n(पति का नाम)</string>
+    <string name="hint_fathername">Father Name (पिता का नाम)</string>
+    <string name="hint_husbandname">Husband Name (पति का नाम)</string>
+    <string name="hint_dob">Date of Birth (जन्मतारीख)</string>
+    <string name="hint_age">Age (उम्र)</string>
+    <string name="hint_lastname">Surname (उपनाम)</string>
+    <string name="hint_mobilenumber">Mobile Number (मोबाइल)</string>
+    <string name="hint_confirmpass">Confirm Password</string>
+    <string name="hint_address1">Address1(पता-1)</string>
+    <string name="hint_address2">Address2 (पता-2)</string>
+    <string name="hint_idproof">ID Proof No</string>
+    <string name="hint_idproof1">ID Proof 1 (पहचान प्रमाण 1)</string>
+    <string name="hint_idproof2">ID Proof 2 (पहचान प्रमाण 2)</string>
+    <string name="hint_allergy">Allergy (एलर्जी)</string>
+    <string name="hint_spn_allergy">Select Allergy</string>
+    <string name="hint_health">Select Pre-existing Health Condition</string>
+    <string name="hint_spn_health">Pre-existing Health Condition (पूर्व स्वास्थ्य स्थिति)</string>
+    <string name="hint_otherallergy">Other Allergy</string>
+    <string name="hint_otherhealth">Other History</string>
+    <string name="hint_state">State (राज्य)</string>
+    <string name="hint_city">City (शहर)</string>
+    <string name="hint_country">Country (देश)</string>
+    <string name="hint_address">Address (पता)</string>
+    <string name="hint_save">Finish</string>
+    <string name="hint_add">Add More</string>
+    <string name="open_drawer">Open Drawer</string>
+    <string name="close_Drawer">Close Drawer</string>
+    <string name="hint_email">Email (ईमेल)</string>
+    <string name="hint_Password">Password (पासवर्ड)</string>
+    <string name="gender">Gender (लिंग)</string>
+
+    <string name="hint_male">Male (पुरुष)</string>
+    <string name="hint_female">Female (महिला)</string>
+    <string name="hint_other">Other (अन्य)</string>
+
+    <string name="hint_extra_details">Extra Details : </string>
+    <string name="hint_patient">Patient</string>
+    <string name="hint_doctor">Doctor</string>
+    <string name="hint_officer">Officer</string>
+
+
+    <string name="hint_showfilter">Show Filter &#x25BC;</string>
+    <string name="hint_hidefilter">Hide Filter &#x25B2;</string>
+    <string name="hint_search">Search</string>
+    <string name="hint_select_speciality">Specialty/Organization</string>
+    <string name="hint_language">Language</string>
+
+    <string-array name="idproofarray">
+        <item>Select ID Type</item>
+        <item>Aadhar Card</item>
+        <item>PAN Card</item>
+        <item>Driving Licence</item>
+        <item>Voter ID</item>
+        <item>Passport</item>
+        <item>Other</item>
+    </string-array>
+
+    <string name="bloodgroup">Blood Group (रक्त वर्ग)</string>
+    <string-array name="bloodgrouparray">
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>O+</item>
+        <item>O-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+    </string-array>
+
+    <!--    ECG-->
+    <string name="title_activity_e_c_g_device">ECG</string>
+    <string name="ecg_connect_button">Connect ECG device</string>
+    <string name="ecg_take_button">Register ECG</string>
+    <string name="ecg_pdf">Create ECG PDF</string>
+    <string name="forgot_password_hint">Forgot Password?</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="email">Email</string>
+    <string name="emailormobile">Email/Mobile</string>
+    <string name="submit">Submit</string>
+    <string name="back_to_login">Back To Login</string>
+
+    <string name="app_version_update_available">There is a newer version available for download.</string>
+    <string name="app_version_force_update">This app won\'t run unless you update app.</string>
+    <string name="update">Update</string>
+
+
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_10sdp"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:weightSum="1">
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="0.8">
+    <TableRow>
+        <TextView
+            android:text="Name  : "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:textSize="@dimen/_12sdp"/>
+        <TextView
+            android:id="@+id/spList_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:textSize="@dimen/_12sdp"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="@dimen/_7sdp">
+        <TextView
+            android:text="Email   : "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+
+            android:textSize="@dimen/_12sdp"/>
+        <TextView
+            android:id="@+id/spList_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:textSize="@dimen/_12sdp"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="@dimen/_7sdp">
+    <TextView
+        android:text="Mobile : "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:textSize="@dimen/_12sdp"/>
+    <TextView
+        android:id="@+id/spList_mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_marginLeft="2dp"
+        android:textSize="@dimen/_12sdp"/>
+</TableRow>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        android:layout_marginTop="@dimen/_5sdp"/>
+</TableLayout>
+<!--    <ImageButton-->
+<!--        android:id="@+id/delete_data"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        android:tint="@android:color/holo_red_dark"-->
+<!--        android:src="@android:drawable/ic_menu_delete"/>-->
+</LinearLayout>

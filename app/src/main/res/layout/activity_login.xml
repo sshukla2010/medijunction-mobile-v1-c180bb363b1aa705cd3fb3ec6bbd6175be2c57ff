@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:fillViewport="true"
+    android:background="@drawable/login_bg"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+
+        <LinearLayout
+            android:id="@+id/signinlayout"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="15dp"
+                android:padding="5dp"
+                android:src="@drawable/medilogo" />
+
+
+
+                <EditText
+                    android:id="@+id/edt_signin_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:drawableLeft="@drawable/ic_user"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/White"
+                    android:drawablePadding="5dp"
+                    android:paddingLeft="10dp"
+                    android:hint="@string/emailormobile"
+                    android:background="@drawable/rounded_white_border"
+                    android:textColorHint="@color/oppwhite"/>
+
+
+            <EditText
+                android:id="@+id/edt_signin_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/White"
+                android:imeOptions="actionDone"
+                android:drawableLeft="@drawable/ic_key"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="8dp"
+                android:inputType="textPassword"
+                android:drawablePadding="5dp"
+                android:paddingLeft="10dp"
+                android:hint="Password"
+                android:background="@drawable/rounded_white_border"
+                android:textColorHint="@color/oppwhite"
+                />
+
+            <EditText
+                android:id="@+id/edt_signin_pincode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/White"
+                android:imeOptions="actionNext"
+                android:drawableLeft="@drawable/ic_pin"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="8dp"
+                android:inputType="numberDecimal"
+                android:drawablePadding="5dp"
+                android:paddingLeft="10dp"
+                android:hint="PINCODE"
+                android:visibility="gone"
+                android:background="@drawable/rounded_white_border"
+                android:textColorHint="@color/oppwhite"
+                />
+
+            <EditText
+                android:id="@+id/edt_signin_clinicid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/White"
+                android:imeOptions="actionDone"
+                android:drawableLeft="@drawable/ic_hospital"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="8dp"
+                android:inputType="text"
+                android:drawablePadding="5dp"
+                android:paddingLeft="10dp"
+                android:hint="Clinic Id"
+                android:visibility="gone"
+                android:background="@drawable/rounded_white_border"
+                android:textColorHint="@color/oppwhite"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btn_login_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:background="@drawable/rounded_button_blue"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:textColor="@color/White"
+                    />
+
+                <TextView
+                    android:id="@+id/btn_login_singup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="New User?  Sign Up"
+                    android:background="@null"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/light_orange"
+                    android:layout_marginTop="15dp"
+                    android:textSize="@dimen/_12ssp"
+                    />
+
+                <TextView
+                    android:id="@+id/btn_forgotPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/forgot_password_hint"
+                    android:background="@null"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="15dp"
+                    android:textSize="@dimen/_12ssp"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/login_progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        />
+    </FrameLayout>
+</ScrollView>

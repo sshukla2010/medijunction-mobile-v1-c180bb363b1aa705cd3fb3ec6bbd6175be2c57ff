@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/sidenavigation_home"
+            android:icon="@drawable/ic_home_green_24dp"
+            android:title="@string/nav_home" />
+
+        <item
+            android:id="@+id/sidenavigation_registerpatient"
+            android:icon="@drawable/ic_add_patients"
+            android:title="@string/nav_RegisterPatient" />
+
+        <item
+            android:id="@+id/sidenavigation_registeredpatient"
+            android:icon="@drawable/ic_patients"
+            android:title="@string/nav_RegisteredPatient" />
+
+        <item
+            android:id="@+id/sidenavigation_coupons"
+            android:icon="@drawable/ic_main_voucher"
+            android:title="@string/nav_coupons" />
+
+        <item
+            android:id="@+id/sidenavigation_ourdoctors"
+            android:icon="@drawable/ic_ourdoctor"
+            android:title="@string/nav_ourdoctors"
+            android:visible="false"/>
+
+        <item
+            android:id="@+id/sidenavigation_addcoupns"
+            android:icon="@drawable/ic_note_voucher"
+            android:title="@string/nav_addcoupons"
+            android:visible="false"/>
+
+        <item
+            android:id="@+id/sidenavigation_mycoupon"
+            android:icon="@drawable/ic_main_voucher"
+            android:title="@string/nav_mycoupons"
+            android:visible="false"/>
+
+
+
+        <item
+            android:id="@+id/sidenavigation_consultation"
+            android:icon="@drawable/ic_video_call_black_24dp"
+            android:title="@string/nav_consultation" />
+
+        <item android:id="@+id/sidenavigation_missedcallLogs"
+            android:icon="@drawable/ic_call"
+            android:title="@string/nav_missedCallsLog" />
+
+
+        <item
+            android:id="@+id/sidenavigation_casehistory"
+            android:icon="@drawable/ic_casehistory"
+            android:title="@string/nav_casehistory" />
+
+        <item
+            android:id="@+id/sidenavigation_clinichistory"
+            android:icon="@drawable/ic_casehistory"
+            android:title="Clinic History" />
+
+
+        <item android:id="@+id/sidenavigation_logout"
+            android:icon="@drawable/ic_logout_black_24dp"
+            android:title="@string/sidenav_signout"/>
+
+
+    </group>
+</menu>

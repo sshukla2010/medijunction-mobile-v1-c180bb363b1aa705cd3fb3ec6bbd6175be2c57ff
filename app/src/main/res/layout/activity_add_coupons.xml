@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddCouponsActivity">
+
+
+    <Button
+        android:id="@+id/btn_add_coupons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/view_rounded_white_corner"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_margin="@dimen/_10sdp"
+        android:text="Add Coupons"/>
+
+    <Button
+        android:id="@+id/btn_organization"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/view_rounded_white_corner"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_margin="@dimen/_10sdp"
+        android:text="@string/hint_select_speciality"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_addcouponslist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btn_add_coupons"
+        android:layout_below="@+id/btn_organization"
+        tools:listitem="@layout/adaptercoupon"/>
+
+
+
+
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/nodata"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text=""
+        android:gravity="center"
+        android:textSize="@dimen/_16sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_above="@id/btn_add_coupons"/>
+
+
+
+
+</RelativeLayout>

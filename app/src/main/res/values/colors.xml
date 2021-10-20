@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="colorPrimary">#008080</color>
+  <color name="colorPrimaryDark">#008080</color>
+  <color name="colorAccent">#def88f21</color>
+  <color name="oppwhite">#88ffffff</color>
+  <color name="transparent">#00ffffff</color>
+  <color name="gray">#d4d0d0</color>
+  <color name="White">#ffffff</color>
+  <color name="lightnaviblue">#1666c1</color>
+  <color name="light_back">#ef2386c9</color>
+  <color name="selected_gray">#ffdbdbdb</color>
+  <color name="light_orange">#F88F21</color>
+  <color name="dim_orange">#def88f21</color>
+  <color name="white">#ffffff</color>
+  <color name="lightwhite">#f9f9f9</color>
+  <color name="black">#000000</color>
+  <color name="lightGray">#aaaa</color>
+  <color name="menucolor">#008080</color>
+  <color name="lightbackcolor">#ffffff</color>
+  <color name="userInputColor">#007475</color>
+
+
+  <color name="color_primary">#212121</color>
+  <color name="color_primary_variant">#000000</color>
+  <color name="color_on_primary">#FFFFFF</color>
+  <color name="color_secondary">#2962FF</color>
+  <color name="color_secondary_variant">#0039CB</color>
+  <color name="color_on_secondary">#FFFFFF</color>
+  <color name="color_error">#F44336</color>
+  <color name="color_on_error">#FFFFFF</color>
+  <color name="color_surface">#FFFFFF</color>
+  <color name="color_on_surface">#000000</color>
+  <color name="color_background">#FAFAFA</color>
+  <color name="color_on_background">#000000</color>
+  <color name="color_status_bar">#000000</color>
+</resources>
