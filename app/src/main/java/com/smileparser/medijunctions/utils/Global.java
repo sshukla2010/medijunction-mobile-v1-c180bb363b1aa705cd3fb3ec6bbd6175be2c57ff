@@ -100,7 +100,7 @@ public class Global {
         mPrefs = SPreferenceManager.getInstance(context);
         globalregisterPatientList = new ArrayList<>();
         mInstance = this;
-//        siteurl = context.getString(R.string.app_url); //"https://devgv.medijunction.co.in/";
+        siteurl = context.getString(R.string.app_url); //"https://devgv.medijunction.co.in/";
         //context.startService(new Intent(context, TempService.class));
         Log.d(TAG,"Global class OnCreate");
 

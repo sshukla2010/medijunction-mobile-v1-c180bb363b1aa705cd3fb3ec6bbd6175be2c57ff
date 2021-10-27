@@ -76,6 +76,10 @@ public class AshaConnectActivity extends AppCompatActivity {
 //    Doctor: rupadivatia@yahoo.co.in / MediDoctor2019
 //    Virtual Health Officer(Patient): anuju@gmail.com / anuj
 
+ /*   https://github.com/ctoagile/medijunction-web-v1
+    userid-Amit1363
+    Amit Kumar Tiwari: PASSWORD-Ocio@2021*/
+
 
     private static final int REQUEST_ENABLE_BT = 1;
     private MediaPlayer mediaPlayer = new MediaPlayer();
@@ -763,7 +767,12 @@ public class AshaConnectActivity extends AppCompatActivity {
                                     //blood_pressure_response.setText(msgReceived);
                                     String myString = msgReceived;
                                     String[] splitString = myString.split("_");
-                                    blood_pressure_response.setText("" + splitString[1] + " / " + splitString[2]);
+                                    if (splitString[1].startsWith("Measuring")) {
+                                        blood_pressure_response.setText("Fetching...");
+                                    }else{
+                                        blood_pressure_response.setText("" + splitString[1] + " / " + splitString[2]);
+                                    }
+
 
                                     if (myString.contains("_")) {
                                         bloodPressureValue = "" + splitString[1] + " / " + splitString[2];
@@ -773,7 +782,12 @@ public class AshaConnectActivity extends AppCompatActivity {
 
                                 } else if (clicked_value.equalsIgnoreCase("s")) {
                                     String msg = msgReceived;
-                                    stetescope_response.setText(msgReceived);
+                                    if (msg.startsWith("C_")) {
+                                        stetescope_response.setText("Fetching...");
+                                    } else {
+                                        stetescope_response.setText(msgReceived);
+                                    }
+
 
                                     // callbackContext.sendPluginResult(pluginResult);
 
@@ -1049,10 +1063,15 @@ public class AshaConnectActivity extends AppCompatActivity {
                                     //  spo_response.setText(msgReceived);
                                     String myString = msgReceived;
                                     String[] splitString = myString.split("_");
-                                    spo_response.setText("SPO2:" + splitString[1] + "% , Pulse:" + splitString[2]+"bpm");
+                                    if (splitString[1].startsWith("Measuring")) {
+                                        spo_response.setText("Fetching...");
+                                    } else {
+                                        spo_response.setText("SPO2:" + splitString[1] + "% , Pulse:" + splitString[2]+"bpm");
+                                    }
+
 
                                     if (myString.contains("_")) {
-                                        spoValue = "" + splitString[1] + " / " + splitString[2];
+                                        spoValue = "" + splitString[1] + "/" + splitString[2];
                                     } else {
                                         spoValue = "";
                                     }

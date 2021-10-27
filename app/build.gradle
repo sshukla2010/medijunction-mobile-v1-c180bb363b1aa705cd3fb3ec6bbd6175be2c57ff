@@ -24,7 +24,7 @@ android {
     applicationVariants.all { variant ->
        // variant.resValue "string", "logo", "@drawable/medilogo"
         variant.resValue "string", "app_name", "MEDIJUNCTION"
-        variant.resValue "string", "app_url", "https://dev.medijunction.co.in/"   //"https://dev.medijunction.co.in/"  //"https://medijunction.co.in/" //https://devgv.medijunction.co.in/
+        variant.resValue "string", "app_url", "https://devps.medijunction.co.in/"   //"https://dev.medijunction.co.in/"  //"https://medijunction.co.in/" //https://devgv.medijunction.co.in/
     }
     buildTypes {
         release {
