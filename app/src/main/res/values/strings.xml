@@ -1,5 +1,5 @@
 <resources>
-     <string name="app_url">https://dev.medijunction.co.in/</string>
+    <!-- <string name="app_url">https://devgv.medijunction.co.in/</string>-->
     <string name="Rs">\u20B9</string>
     <string name="error_msg_require_field">This field is required</string>
     <string name="share_userdetails">UserDetails</string>

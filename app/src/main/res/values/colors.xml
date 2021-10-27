@@ -2,7 +2,7 @@
 <resources>
   <color name="colorPrimary">#008080</color>
   <color name="colorPrimaryDark">#008080</color>
-  <color name="colorAccent">#def88f21</color>
+  <color name="colorAccent">#008080</color>
   <color name="oppwhite">#88ffffff</color>
   <color name="transparent">#00ffffff</color>
   <color name="gray">#d4d0d0</color>

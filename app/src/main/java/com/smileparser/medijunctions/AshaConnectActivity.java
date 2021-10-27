@@ -23,6 +23,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +51,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -66,6 +68,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AshaConnectActivity extends AppCompatActivity {
+
+    // Application Login Credentials
+
+//    Login info:
+//    Health Officer: nazimahmad8587@gmail.com / nazim1234
+//    Doctor: rupadivatia@yahoo.co.in / MediDoctor2019
+//    Virtual Health Officer(Patient): anuju@gmail.com / anuj
+
+
     private static final int REQUEST_ENABLE_BT = 1;
     private MediaPlayer mediaPlayer = new MediaPlayer();
     private BluetoothSocket connectedBluetoothSocket;
@@ -74,7 +85,7 @@ public class AshaConnectActivity extends AppCompatActivity {
     BluetoothAdapter bluetoothAdapter;
     int bytes;
     FileOutputStream fos = null;
-    //
+
     int i = 0;
     int endofFileDetect = 0;
     byte[] firstChar = new byte[1];
@@ -111,6 +122,7 @@ public class AshaConnectActivity extends AppCompatActivity {
     TextView textInfo, textStatus;
     ListView listViewPairedDevice;
     LinearLayout inputPane;
+    ScrollView inputpaneScrollView;
     EditText inputField;
     Button stop, btnSend, all_results;
     ImageView stetescope, temprature, blood_pressure, torch, ecg_results, glucose_results, spo;
@@ -123,6 +135,7 @@ public class AshaConnectActivity extends AppCompatActivity {
     String ecgValue = "";
     String spoValue = "";
     String glucoseValue = "";
+    String valuesArray[];
 
     TextView stetescope_response, temprature_response, blood_pressure_response, torch_response, ecg_results_response, spo_response, glucose_results_response, stop_response, all_results_response;
     ArrayAdapter<BluetoothDevice> pairedDeviceAdapter;
@@ -135,6 +148,9 @@ public class AshaConnectActivity extends AppCompatActivity {
     String patientid;
     ThreadConnectBTdevice myThreadConnectBTdevice;
     ThreadConnected myThreadConnected;
+
+    User user;
+    String vitalid;
 
 
     @Override
@@ -172,6 +188,7 @@ public class AshaConnectActivity extends AppCompatActivity {
         pairedListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<String>());
         listViewPairedDevice.setAdapter(pairedListAdapter);
         inputPane = (LinearLayout) findViewById(R.id.inputpane);
+        inputpaneScrollView = (ScrollView) findViewById(R.id.inputpaneScrollView);
         inputField = (EditText) findViewById(R.id.input);
         btnSend = (Button) findViewById(R.id.send);
         stetescope = (ImageView) findViewById(R.id.stetescope);
@@ -260,7 +277,6 @@ public class AshaConnectActivity extends AppCompatActivity {
                 if (stest.equalsIgnoreCase("s")) {
                     stetescope.setBackgroundResource(R.color.menucolor);
                     stetescope_response.setText("Please press again to stop");
-
                     String s = "s";
                     clicked_value = s;
 //                    bluetooth(s);
@@ -269,6 +285,12 @@ public class AshaConnectActivity extends AppCompatActivity {
                     myThreadConnected.write(bytesToSend);
                 } else if (stest.equalsIgnoreCase("x")) {
                     stetescope_response.setText("" + stetfiles);
+
+                    if (stetfiles.exists()) {
+                        stetescopeValue = "exist";
+                    } else {
+                        stetescopeValue = "";
+                    }
 
                     String s = "x";
                     clicked_value = s;
@@ -370,17 +392,69 @@ public class AshaConnectActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                User user = Global.getUserDetails();
+                valuesArray= new String[] {tempratureValue,spoValue,bloodPressureValue,glucoseValue,stetescopeValue,ecgValue};
+                final String  staticvaluesArray[] = new String[] {"Temperature","SPO2 and Pulse","Blood Pressure","Blood Glucose","Stethoscope","ECG"};
 
-                new getUser().execute();
-              /*  try {
-                //    myThreadConnectBTdevice.cancel();
-                 //   myThreadConnected.cancel();
-                    connectedBluetoothSocket.close();
-                } catch (IOException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }*/
+                String msgString = "";
+                String titleString = "Please check the records before uploading";
+
+                for (int i=0;i<valuesArray.length;i++){
+
+                    if (valuesArray[i].length()>1) {
+                        if (i == 0) {
+                            msgString = msgString + staticvaluesArray[i];
+                        } else {
+                            msgString = msgString+", " + staticvaluesArray[i];
+                        }
+                    }
+                }
+
+                if (msgString.length() < 1) {
+                    titleString = "Sorry no records available";
+
+                    new AlertDialog.Builder(AshaConnectActivity.this)
+                            .setTitle(titleString)
+                            .setCancelable(false)
+
+
+                            // Specifying a listener allows you to take an action before dismissing the dialog.
+                            // The dialog is automatically dismissed when a dialog button is clicked.
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // Continue with delete operation
+
+                                }
+                            })
+
+
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+
+                } else {
+                    new AlertDialog.Builder(AshaConnectActivity.this)
+                            .setTitle(titleString)
+                            .setMessage(msgString)
+                            .setCancelable(false)
+
+
+                            // Specifying a listener allows you to take an action before dismissing the dialog.
+                            // The dialog is automatically dismissed when a dialog button is clicked.
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // Continue with delete operation
+
+                                    user = Global.getUserDetails();
+
+                                    new getUser().execute();
+                                }
+                            })
+
+                            // A null listener allows the button to dismiss the dialog and take no further action.
+                            .setNegativeButton(android.R.string.no, null)
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+                }
+
             }
         });
 
@@ -495,12 +569,8 @@ public class AshaConnectActivity extends AppCompatActivity {
                         BluetoothDevice device =
                                 (BluetoothDevice) pairedDeviceArrayList.get(position);
                         Toast.makeText(AshaConnectActivity.this,
-                                "Name: " + device.getName() + "\n"
-                                        + "Address: " + device.getAddress() + "\n"
-                                        + "BondState: " + device.getBondState() + "\n"
-                                        + "BluetoothClass: " + device.getBluetoothClass() + "\n"
-                                        + "Class: " + device.getClass(),
-                                Toast.LENGTH_LONG).show();
+                                "Please wait connecting with " + device.getName() ,
+                                Toast.LENGTH_SHORT).show();
 
                         //   textStatus.setText("start ThreadConnectBTdevice");
                         myThreadConnectBTdevice = new ThreadConnectBTdevice(device);
@@ -590,6 +660,9 @@ public class AshaConnectActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         textStatus.setText("Please check Asha + device is On or not.");
+                        Toast.makeText(AshaConnectActivity.this,
+                                "Please check Asha + device is On or not.",
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -613,6 +686,7 @@ public class AshaConnectActivity extends AppCompatActivity {
                         textStatus.setText(msgconnected);
                         listViewPairedDevice.setVisibility(View.GONE);
                         inputPane.setVisibility(View.VISIBLE);
+                        inputpaneScrollView.setVisibility(View.VISIBLE);
                     }
                 });
 
@@ -668,7 +742,6 @@ public class AshaConnectActivity extends AppCompatActivity {
         public void run() {
             byte[] buffer = new byte[2048];
 
-
             while (true) {
                 if (connectedBluetoothSocket != null) {
                     try {
@@ -707,7 +780,7 @@ public class AshaConnectActivity extends AppCompatActivity {
                                 } else if (clicked_value.equalsIgnoreCase("m")) {
                                     String myString = msgReceived;
                                     String[] splitString = myString.split("_");
-                                    temprature_response.setText("" + splitString[1] + " / " + splitString[2]);
+                                    temprature_response.setText("" + splitString[1] + "\u2103 , " + splitString[2]+"\u2109");
                                     if (myString.contains("_")) {
                                         tempratureValue = "" + splitString[1] + " / " + splitString[2];
                                     } else {
@@ -976,7 +1049,7 @@ public class AshaConnectActivity extends AppCompatActivity {
                                     //  spo_response.setText(msgReceived);
                                     String myString = msgReceived;
                                     String[] splitString = myString.split("_");
-                                    spo_response.setText("" + splitString[1] + " / " + splitString[2]);
+                                    spo_response.setText("SPO2:" + splitString[1] + "% , Pulse:" + splitString[2]+"bpm");
 
                                     if (myString.contains("_")) {
                                         spoValue = "" + splitString[1] + " / " + splitString[2];
@@ -1010,7 +1083,6 @@ public class AshaConnectActivity extends AppCompatActivity {
         public void write(byte[] buffer) {
             try {
                 connectedOutputStream.write(buffer);
-
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -1181,12 +1253,18 @@ public class AshaConnectActivity extends AppCompatActivity {
 
 
         @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            LoadingDialog.showLoadingDialog(AshaConnectActivity.this,"Please wait uploading records.");
+        }
+
+        @Override
         protected Void doInBackground(String... params) {
             try {
                 ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
                 HashMap<String, String> map = new HashMap<String, String>();
-                User user = Global.getUserDetails();
+                user = Global.getUserDetails();
 
                 map.put("UserId", user.getId());
                 map.put("PatientId", patientid);
@@ -1201,11 +1279,6 @@ public class AshaConnectActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<VitalResponse> call, Response<VitalResponse> response) {
 
-                        try {
-                            LoadingDialog.cancelLoading();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
 
                         if (Global.IsNotNull(response.body())) {
                             if (response.body().getResponse()) {
@@ -1213,24 +1286,23 @@ public class AshaConnectActivity extends AppCompatActivity {
                                 Gson gson = new Gson();
 
                                 // VitalResponse users = gson.fromJson(response.body().getResult(), VitalResponse.class);
-                                String vitalid = "" + response.body().getResult().getPatientVitalsID();
+                                vitalid = "" + response.body().getResult().getPatientVitalsID();
                                 Log.e("vitalid", "" + response.body().getResult().getPatientVitalsID());
                                 if (ecg_results_response.getText().toString().isEmpty() && stetescope_response.getText().toString().isEmpty()) {
 
-                                  /*  try {
-                                      //  myThreadConnectBTdevice.cancel();
-                                       // connectedBluetoothSocket.close();
-                                    } catch (IOException e) {
+                                    try {
+                                        LoadingDialog.cancelLoading();
+                                        finish();
+                                    } catch (Exception e) {
                                         e.printStackTrace();
-                                    }*/
-                                    finish();
+                                    }
+
+
                                 } else if (!ecg_results_response.getText().toString().isEmpty() && !stetescope_response.getText().toString().isEmpty()) {
                                     ArrayList<File> files = new ArrayList<>();
-                                    ArrayList<File> files2 = new ArrayList<>();
                                     files.add(ecgfiles);
-                                    files2.add(stetfiles);
                                     uploadImage(patientid, user.getId(), "" + vitalid, files);
-                                    uploadstetImage(patientid, user.getId(), "" + vitalid, files2);
+
 
                                   /*  try {
                                      //   myThreadConnectBTdevice.cancel();
@@ -1301,11 +1373,11 @@ public class AshaConnectActivity extends AppCompatActivity {
                             Toast.makeText(AshaConnectActivity.this, "" + getString(R.string.somethingwrong), Toast.LENGTH_SHORT).show();
                         }
 
-                        try {
+                   /*     try {
                             LoadingDialog.cancelLoading();
                         } catch (Exception e) {
                             e.printStackTrace();
-                        }
+                        }*/
                     }
 
 
@@ -1356,6 +1428,16 @@ public class AshaConnectActivity extends AppCompatActivity {
                                            Response<ApiResponse> response) {
                         if (response.code() / 100 == 2) {
                             Log.d("ECG", "Ecg file uploaded");
+
+                            if (!ecg_results_response.getText().toString().isEmpty() && !stetescope_response.getText().toString().isEmpty()) {
+                                ArrayList<File> files2 = new ArrayList<>();
+                                files2.add(stetfiles);
+                                uploadstetImage(patientid, user.getId(), "" + vitalid, files2);
+                            } else {
+                                LoadingDialog.cancelLoading();
+                                finish();
+                            }
+
                          /*   Log.d(TAG, response.body().toString());
                             updateProgress(100);
                             count++;*/

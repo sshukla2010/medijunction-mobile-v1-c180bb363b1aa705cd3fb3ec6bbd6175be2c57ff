@@ -36,6 +36,42 @@ import java.util.Map;
  * Created by hardik on 18/4/18.
  */
 
+/*    Screens details throughout the app being used for different types of logins.
+
+        Virtual Health Officer(Patient) Login:
+
+        Dashboard Activity            (Native)
+        Book Consultaion Activity     (Native)
+        Register New Patient Activity (Native)
+        Patient Consultaion Activity  (Webview)
+        Patient Case History Activity (Webview)
+        ECG Activity                  (Native)
+        Family Members List Activity  (Native)
+        Asha+ Connect Activity        (Native)
+
+
+        Health Officer Login:
+
+        Register New Patient Activity (Native)
+        Patient List Activity         (Native)
+        Clinic History Activity       (Native)
+        Case History Activity         (Webview)
+        ECG Activity                  (Native)
+        Asha+ Connect Activity        (Native)
+
+
+        Doctor Login:
+
+        Dashboard Activity            (Native)
+        Patient Consultaion Activity  (Webview)
+        Missed Call Log Activity      (Native)*/
+
+//    Login info:
+//    Health Officer: nazimahmad8587@gmail.com / nazim1234
+//    Doctor: rupadivatia@yahoo.co.in / MediDoctor2019
+//    Virtual Health Officer(Patient): anuju@gmail.com / anuj
+
+
 public class Global {
     private static final String TAG = "Global";
 
@@ -64,7 +100,7 @@ public class Global {
         mPrefs = SPreferenceManager.getInstance(context);
         globalregisterPatientList = new ArrayList<>();
         mInstance = this;
-        siteurl = context.getString(R.string.app_url); //"https://devgv.medijunction.co.in/";
+//        siteurl = context.getString(R.string.app_url); //"https://devgv.medijunction.co.in/";
         //context.startService(new Intent(context, TempService.class));
         Log.d(TAG,"Global class OnCreate");
 

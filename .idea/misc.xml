@@ -4,14 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android Workspace/OCIO APP/medijunction-mobile-v1-c180bb363b1aa705cd3fb3ec6bbd6175be2c57ff/app/src/main/res/layout/activity_asha_connect.xml" value="0.1358695652173913" />
+        <entry key="..\:/Android Workspace/OCIO APP/medijunction-mobile-v1-c180bb363b1aa705cd3fb3ec6bbd6175be2c57ff/app/src/main/res/layout/activity_dashboard.xml" value="0.2427536231884058" />
+        <entry key="..\:/Android Workspace/OCIO APP/medijunction-mobile-v1-c180bb363b1aa705cd3fb3ec6bbd6175be2c57ff/app/src/main/res/layout/activity_ecg.xml" value="0.2427536231884058" />
         <entry key="..\:/Android Workspace/OCIO APP/medijunction-mobile-v1-c180bb363b1aa705cd3fb3ec6bbd6175be2c57ff/app/src/main/res/layout/activity_login.xml" value="0.2368659420289855" />
+        <entry key="..\:/Android Workspace/OCIO APP/medijunction-mobile-v1-c180bb363b1aa705cd3fb3ec6bbd6175be2c57ff/app/src/main/res/layout/activity_missed_call_log.xml" value="0.2427536231884058" />
         <entry key="..\:/Android Workspace/OCIO APP/medijunction-mobile-v1-c180bb363b1aa705cd3fb3ec6bbd6175be2c57ff/app/src/main/res/layout/activity_my_coupons.xml" value="0.13020833333333334" />
+        <entry key="..\:/Android Workspace/OCIO APP/medijunction-mobile-v1-c180bb363b1aa705cd3fb3ec6bbd6175be2c57ff/app/src/main/res/layout/activity_our_doctor.xml" value="0.2427536231884058" />
         <entry key="..\:/Android Workspace/OCIO APP/medijunction-mobile-v1-c180bb363b1aa705cd3fb3ec6bbd6175be2c57ff/app/src/main/res/layout/activity_register.xml" value="0.24592391304347827" />
+        <entry key="..\:/Android Workspace/OCIO APP/medijunction-mobile-v1-c180bb363b1aa705cd3fb3ec6bbd6175be2c57ff/app/src/main/res/layout/activity_register_patient.xml" value="0.2427536231884058" />
         <entry key="..\:/Android Workspace/OCIO APP/medijunction-mobile-v1-c180bb363b1aa705cd3fb3ec6bbd6175be2c57ff/app/src/main/res/layout/activity_splash.xml" value="0.12360688956433637" />
+        <entry key="..\:/Android Workspace/OCIO APP/medijunction-mobile-v1-c180bb363b1aa705cd3fb3ec6bbd6175be2c57ff/app/src/main/res/layout/adaptercoupon.xml" value="0.2427536231884058" />
+        <entry key="..\:/Android Workspace/OCIO APP/medijunction-mobile-v1-c180bb363b1aa705cd3fb3ec6bbd6175be2c57ff/app/src/main/res/layout/fragment_coupons.xml" value="0.2427536231884058" />
         <entry key="..\:/Android Workspace/OCIO APP/medijunction-mobile-v1-c180bb363b1aa705cd3fb3ec6bbd6175be2c57ff/app/src/main/res/layout/popup_forgotpassword.xml" value="0.13020833333333334" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

@@ -49,64 +49,64 @@
         android:requestLegacyExternalStorage="true">
 
         <activity android:name=".MissedCallLogActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".BookConsultationActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/AppThemeActionBar" />
         <activity android:name=".utils.ClinicalDataHistoryActivity" />
         <activity
             android:name=".OurDoctorActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".CouponsActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".ConsultationActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/AppThemeActionBar" />
    <activity
             android:name=".AshaConnectActivity"
-            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
             android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".CaseHistoryActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".ClinicHistoryActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".WebViewActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".ClinicHistoryNativeActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".MyCouponsActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".AddCouponsActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".RegisterActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/AppTheme.NoActionBar.FullScreen.LoginRegister" />
         <activity
             android:name=".LoginActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/AppTheme.NoActionBar.FullScreen.LoginRegister" />
         <activity
             android:name=".SplashActivity"
-            android:screenOrientation="portrait"
+
             android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar.FullScreen">
             <intent-filter>
@@ -174,30 +174,30 @@
                 android:process=":MyProcess" />
         -->
         <activity android:name=".Dashboard"
-            android:screenOrientation="portrait"/>
+            />
         <activity android:name="com.soundcloud.android.crop.CropImageActivity"
-            android:screenOrientation="portrait"/>
+            />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".RegisteredPatientSearchActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/AppThemeActionBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".RegisterPatientAddFamilyActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeActionBar" />
+
+            android:theme="@style/AppThemeActionBar"/>
         <activity
             android:name=".RegisterPatientEditActivity"
-            android:screenOrientation="portrait"
+
             android:parentActivityName=".RegisteredPatientSearchActivity"
             android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".ECGActivity"
-            android:screenOrientation="portrait"
+
             android:parentActivityName=".RegisteredPatientSearchActivity"
             android:theme="@style/AppThemeActionBar" />
         <activity
