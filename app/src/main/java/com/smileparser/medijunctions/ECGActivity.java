@@ -7,10 +7,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -62,6 +64,9 @@ public class ECGActivity extends AppCompatActivity implements View.OnClickListen
     private int curr_connection_tries = 0;
     private String patientName = null;
     private String ecg_type = null;
+    LocationManager lm ;
+    boolean gps_enabled = false;
+    boolean network_enabled = false;
 
     DialogInterface.OnClickListener dialogClickListener;
     private AlertDialog.Builder builder;
@@ -88,6 +93,9 @@ public class ECGActivity extends AppCompatActivity implements View.OnClickListen
             actionBar.setHomeButtonEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setTitle("ECG");
+
+            lm = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -96,7 +104,7 @@ public class ECGActivity extends AppCompatActivity implements View.OnClickListen
         Intent intent = getIntent();
         patientName = intent.getStringExtra("patientName");
         ecg_type = intent.getStringExtra("ecgType");
-        
+
         initiateEcg = new InitiateEcg();
 
         dialogClickListener = new DialogInterface.OnClickListener() {
@@ -119,10 +127,49 @@ public class ECGActivity extends AppCompatActivity implements View.OnClickListen
         builder = new AlertDialog.Builder(this);
 
         if(checkPermissions()) {
+
+            try {
+                gps_enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+            } catch(Exception ex) {}
+
+            try {
+                network_enabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+            } catch(Exception ex) {}
+
+            if(!gps_enabled && !network_enabled) {
+                // notify user
+                new AlertDialog.Builder(this)
+                        .setTitle("GPS Error")
+                        .setMessage("Please enable GPS before proceeding for ecg.")
+
+
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                ECGActivity.this.startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                            }
+                        })
+
+                        // A null listener allows the button to dismiss the dialog and take no further action.
+                        .setNegativeButton(android.R.string.no, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+            }
+
+
+
+        }
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        gps_enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        if (gps_enabled) {
             if (ecg_type.equals("device")) updateAlertBox();
             else ecgProcedure();
         }
-
     }
 
     public boolean checkPermissions() {
